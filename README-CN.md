@@ -7,57 +7,56 @@
 [![codecov](https://codecov.io/gh/no-src/fsctl/branch/main/graph/badge.svg?token=BTPKR8G6QI)](https://codecov.io/gh/no-src/fsctl)
 [![Release](https://img.shields.io/github/v/release/no-src/fsctl)](https://github.com/no-src/fsctl/releases)
 
-English | [简体中文](README-CN.md)
+[English](README.md) | 简体中文
 
-The fsctl is a configuration-based file operation and validation tool.
+fsctl是一种基于配置的文件操作和验证工具
 
-## Installation
+## 安装
 
-The first need [Go](https://go.dev/doc/install) installed (**version 1.19+ is required**), then you can use the below
-command to install `fsctl`.
+首先需要确保已经安装了[Go](https://golang.google.cn/doc/install) (**版本必须是1.19+**)，
+然后你就可以使用下面的命令来安装`fsctl`了
 
 ```bash
 go install github.com/no-src/fsctl/...@latest
 ```
 
-### Run In Docker
+### 在Docker中运行
 
-You can use the [build-docker.sh](/scripts/build-docker.sh) script to build the docker image and you should clone this
-repository and `cd` to the root path of the repository first.
+你可以使用[build-docker.sh](/scripts/build-docker.sh)脚本来构建docker镜像，首先你需要克隆本仓库并且`cd`到本仓库的根目录
 
 ```bash
 $ ./scripts/build-docker.sh
 ```
 
-Or pull the docker image directly from [DockerHub](https://hub.docker.com/r/nosrc/fsctl) with the command below.
+或者使用以下命令直接从[DockerHub](https://hub.docker.com/r/nosrc/fsctl)中拉取docker镜像
 
 ```bash
 $ docker pull nosrc/fsctl
 ```
 
-For more scripts about release and docker, see the [scripts](/scripts) directory.
+更多关于发布与docker的脚本参见[scripts](scripts)目录
 
-## Quick Start
+## 快速开始
 
 ```bash
 $ fsctl -conf fsctl.yaml
 ```
 
-## For More Information
+## 更多信息
 
-### Help Info
+### 帮助信息
 
 ```bash
 $ fsctl -h
 ```
 
-### Version Info
+### 版本信息
 
 ```bash
 $ fsctl -v
 ```
 
-### About Info
+### 关于信息
 
 ```bash
 $ fsctl -about
