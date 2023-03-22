@@ -10,7 +10,10 @@
 # git pull --no-rebase
 
 # update the latest golang image
-# docker pull golang
+docker pull golang:alpine
+
+# set GOPROXY environment variable
+# GOPROXY=https://goproxy.cn
 
 # set the fsctl docker image name by FSCTL_IMAGE_NAME variable
 FSCTL_IMAGE_NAME=nosrc/fsctl
@@ -30,7 +33,7 @@ docker rmi -f $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG
 docker build --build-arg GOPROXY=$GOPROXY -t $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG .
 
 # remove dangling images
-docker rmi -f $(docker images -q -f "dangling=true")
+docker image prune -f
 
 # run a container to print the fsctl version
 docker run -it --rm --name running-fsctl-version $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG fsctl -v
