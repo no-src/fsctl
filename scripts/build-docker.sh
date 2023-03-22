@@ -39,4 +39,4 @@ docker image prune -f
 docker run -it --rm --name running-fsctl-version $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG fsctl -v
 
 # push the image to the DockerHub
-# docker push nosrc/fsctl:$FSCTL_IMAGE_TAG
+# docker push $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG
