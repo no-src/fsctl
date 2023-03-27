@@ -4,7 +4,7 @@
 # build the latest image
 # ./scripts/build-docker.sh
 # build the image with a specified tag
-# ./scripts/build-docker.sh v0.0.1
+# ./scripts/build-docker.sh v0.1.0
 
 # update git repository
 # git pull --no-rebase
