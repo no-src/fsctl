@@ -1,0 +1,32 @@
+name: fsctl quick start example
+init:
+  - mkdir:
+    source: ./source
+  - mkdir:
+    source: ./dest
+  - print:
+    input: init done
+actions:
+  - touch:
+    source: ./source/hello
+  - echo:
+    source: ./source/hello
+    input: Hello World
+    append: false
+  - cp:
+    source: ./source/hello
+    dest: ./dest/hello
+  - is-equal:
+    source: ./source/hello
+    dest: ./dest/hello
+    expect: true
+  - is-equal-text:
+    source: ./source/hello
+    dest: |
+      Hello World
+    expect: true
+clear:
+  - rm:
+    source: ./source
+  - rm:
+    source: ./dest

@@ -11,6 +11,7 @@ func TestExec(t *testing.T) {
 		conf string
 	}{
 		{"./example/examples.yaml"},
+		{"./example/fsctl.yaml"},
 	}
 
 	for _, tc := range testCases {
