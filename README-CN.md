@@ -34,13 +34,54 @@ $ ./scripts/build-docker.sh
 $ docker pull nosrc/fsctl
 ```
 
-更多关于发布与docker的脚本参见[scripts](scripts)目录
+更多关于发布与docker的脚本请参见[scripts](scripts)目录
 
 ## 快速开始
+
+创建一个名为`fsctl.yaml`的配置文件，内容如下所示
+
+```yaml
+name: fsctl quick start example
+init:
+  - mkdir:
+    source: ./source
+  - mkdir:
+    source: ./dest
+  - print:
+    input: init done
+actions:
+  - touch:
+    source: ./source/hello
+  - echo:
+    source: ./source/hello
+    input: Hello World
+    append: false
+  - cp:
+    source: ./source/hello
+    dest: ./dest/hello
+  - is-equal:
+    source: ./source/hello
+    dest: ./dest/hello
+    expect: true
+  - is-equal-text:
+    source: ./source/hello
+    dest: |
+      Hello World
+    expect: true
+clear:
+  - rm:
+    source: ./source
+  - rm:
+    source: ./dest
+```
+
+现在运行下面的命令就可以开始操作和验证文件了
 
 ```bash
 $ fsctl -conf fsctl.yaml
 ```
+
+更多`fsctl`的配置示例，请参见[example](/command/example)目录
 
 ## 更多信息
 

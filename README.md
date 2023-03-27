@@ -35,13 +35,54 @@ Or pull the docker image directly from [DockerHub](https://hub.docker.com/r/nosr
 $ docker pull nosrc/fsctl
 ```
 
-For more scripts about release and docker, see the [scripts](/scripts) directory.
+For more scripts about release and docker, please see the [scripts](/scripts) directory.
 
 ## Quick Start
+
+Create a config file named `fsctl.yaml`, content is as follows
+
+```yaml
+name: fsctl quick start example
+init:
+  - mkdir:
+    source: ./source
+  - mkdir:
+    source: ./dest
+  - print:
+    input: init done
+actions:
+  - touch:
+    source: ./source/hello
+  - echo:
+    source: ./source/hello
+    input: Hello World
+    append: false
+  - cp:
+    source: ./source/hello
+    dest: ./dest/hello
+  - is-equal:
+    source: ./source/hello
+    dest: ./dest/hello
+    expect: true
+  - is-equal-text:
+    source: ./source/hello
+    dest: |
+      Hello World
+    expect: true
+clear:
+  - rm:
+    source: ./source
+  - rm:
+    source: ./dest
+```
+
+Now running the command below start to opera and validate the files.
 
 ```bash
 $ fsctl -conf fsctl.yaml
 ```
+
+For more examples of the `fsctl` configuration, please see the [example](/command/example) directory.
 
 ## For More Information
 
