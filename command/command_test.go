@@ -10,7 +10,7 @@ func TestExec(t *testing.T) {
 	testCases := []struct {
 		conf string
 	}{
-		{"./example/command.yaml"},
+		{"./example/examples.yaml"},
 	}
 
 	for _, tc := range testCases {
