@@ -15,7 +15,7 @@ func (c hash) Exec() error {
 	if err != nil {
 		return err
 	}
-	hf, err := hashutil.HashFromFileName(c.Source, h)
+	hf, err := h.HashFromFileName(c.Source)
 	if err != nil {
 		return err
 	}
