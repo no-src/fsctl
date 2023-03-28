@@ -1,7 +1,6 @@
 package command
 
 import (
-	stdhash "hash"
 	"os"
 
 	"github.com/no-src/gofs/util/hashutil"
@@ -41,11 +40,10 @@ func (c isEqual) Exec() error {
 	if !c.Expect && !actual {
 		return nil
 	}
-	srcHash, err := hashutil.HashFromFileName(c.Source, h)
+	srcHash, err := h.HashFromFileName(c.Source)
 	if err == nil {
-		h.Reset()
 		var dstHash string
-		dstHash, err = hashutil.HashFromFileName(c.Dest, h)
+		dstHash, err = h.HashFromFileName(c.Dest)
 		if err == nil {
 			actual = srcHash == dstHash
 			if actual != c.Expect {
@@ -60,7 +58,7 @@ func (c isEqual) Name() string {
 	return "is-equal"
 }
 
-func (c isEqual) newHash() (stdhash.Hash, error) {
+func (c isEqual) newHash() (hashutil.Hash, error) {
 	algorithm := c.Algorithm
 	if len(algorithm) == 0 {
 		algorithm = hashutil.MD5Hash
