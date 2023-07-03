@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/no-src/gofs v0.7.0
-	github.com/no-src/log v0.1.10
+	github.com/no-src/log v0.2.3
 	gopkg.in/yaml.v3 v3.0.1
 )
 
