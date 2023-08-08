@@ -36,6 +36,10 @@ actions:
     source: ./source/empty2
     no-newline: true
   - run: echo "Bye Bye"
+  - symlink:
+    link: ./source/hello.symlink
+    dest: ./source/hello
+    ignore-error: true
   - sleep: 2s
   - is-equal:
     source: ./command_test.go
@@ -87,6 +91,10 @@ actions:
     source: ./source/empty1
     dest: hello
     expect: false
+  - is-symlink:
+    link: ./source/hello.symlink
+    expect: true
+    ignore-error: true
 clear:
   - rm:
     source: ./source
