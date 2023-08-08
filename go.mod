@@ -3,7 +3,7 @@ module github.com/no-src/fsctl
 go 1.19
 
 require (
-	github.com/no-src/gofs v0.7.1
+	github.com/no-src/gofs v0.7.2-0.20230807164208-c903adf2141c
 	github.com/no-src/log v0.2.3
 	gopkg.in/yaml.v3 v3.0.1
 )
