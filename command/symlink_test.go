@@ -17,7 +17,7 @@ func TestSymlink(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			err := tc.cmd.Exec()
 			if err != nil {
-				t.Errorf(testExecReturnErrorFailedMessage)
+				t.Errorf("test symlink command error => %v", err)
 			}
 		})
 	}

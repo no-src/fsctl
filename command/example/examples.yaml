@@ -2,8 +2,10 @@ name: command examples
 init:
   - mkdir:
     source: ./source
+    perm: 0777
   - mkdir:
     source: ./dest
+    must-perm: 0766
   - print:
     input: init done
 actions:

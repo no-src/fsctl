@@ -15,7 +15,7 @@ var (
 )
 
 var (
-	defaultDirPerm  os.FileMode = 0700
+	defaultDirPerm  os.FileMode = 0755
 	defaultFilePerm os.FileMode = 0666
 )
 
