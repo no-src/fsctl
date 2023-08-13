@@ -1,6 +1,6 @@
 module github.com/no-src/fsctl
 
-go 1.19
+go 1.20
 
 require (
 	github.com/no-src/gofs v0.7.2-0.20230807164208-c903adf2141c

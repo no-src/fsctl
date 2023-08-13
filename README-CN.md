@@ -13,7 +13,7 @@ fsctl是一种基于配置的文件操作和验证工具
 
 ## 安装
 
-首先需要确保已经安装了[Go](https://golang.google.cn/doc/install) (**版本必须是1.19+**)，
+首先需要确保已经安装了[Go](https://golang.google.cn/doc/install) (**版本必须是1.20+**)，
 然后你就可以使用下面的命令来安装`fsctl`了
 
 ```bash

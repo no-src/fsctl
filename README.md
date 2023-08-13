@@ -13,7 +13,7 @@ The fsctl is a configuration-based file operation and validation tool.
 
 ## Installation
 
-The first need [Go](https://go.dev/doc/install) installed (**version 1.19+ is required**), then you can use the below
+The first need [Go](https://go.dev/doc/install) installed (**version 1.20+ is required**), then you can use the below
 command to install `fsctl`.
 
 ```bash
