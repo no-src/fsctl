@@ -6,6 +6,8 @@
 # build the image with a specified tag
 # ./scripts/build-docker.sh v0.1.0
 
+echo "current branch is $(git branch --show-current)"
+
 # update git repository
 # git pull --no-rebase
 
@@ -35,8 +37,10 @@ docker build --build-arg GOPROXY=$GOPROXY -t $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG 
 # remove dangling images
 docker image prune -f
 
+docker images | grep fsctl
+
 # run a container to print the fsctl version
-docker run -it --rm --name running-fsctl-version $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG fsctl -v
+docker run --rm --name running-fsctl-version $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG fsctl -v
 
 # push the image to the DockerHub
 # docker push $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG
