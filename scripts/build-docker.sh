@@ -17,30 +17,30 @@ docker pull golang:latest
 # set GOPROXY environment variable
 # GOPROXY=https://goproxy.cn
 
-# set the fsctl docker image name by FSCTL_IMAGE_NAME variable
-FSCTL_IMAGE_NAME=nosrc/fsctl
+SOFT_NAME=fsctl
+# docker image name
+SOFT_IMAGE_NAME=nosrc/${SOFT_NAME}
+# docker image tag
+SOFT_IMAGE_TAG=latest
 
-# set the fsctl docker image tag by FSCTL_IMAGE_TAG variable
-FSCTL_IMAGE_TAG=latest
-
-# reset FSCTL_IMAGE_TAG to the value of the first parameter provided by the user
+# reset SOFT_IMAGE_TAG to the value of the first parameter provided by the user
 if [ -n "$1" ]; then
-  FSCTL_IMAGE_TAG=$1
+  SOFT_IMAGE_TAG=$1
 fi
 
 # remove the existing old image
-docker rmi -f $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG
+docker rmi -f $SOFT_IMAGE_NAME:$SOFT_IMAGE_TAG
 
 # build Dockerfile
-docker build --build-arg GOPROXY=$GOPROXY -t $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG .
+docker build --build-arg GOPROXY=$GOPROXY -t $SOFT_IMAGE_NAME:$SOFT_IMAGE_TAG .
 
 # remove dangling images
 docker image prune -f
 
-docker images | grep fsctl
+docker images | grep ${SOFT_NAME}
 
-# run a container to print the fsctl version
-docker run --rm --name running-fsctl-version $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG fsctl -v
+# run a container to print the soft version
+docker run --rm --name running-${SOFT_NAME}-version $SOFT_IMAGE_NAME:$SOFT_IMAGE_TAG ${SOFT_NAME} -v
 
 # push the image to the DockerHub
-# docker push $FSCTL_IMAGE_NAME:$FSCTL_IMAGE_TAG
+# docker push $SOFT_IMAGE_NAME:$SOFT_IMAGE_TAG
