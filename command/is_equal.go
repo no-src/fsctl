@@ -3,7 +3,7 @@ package command
 import (
 	"os"
 
-	"github.com/no-src/gofs/util/hashutil"
+	"github.com/no-src/nsgo/hashutil"
 )
 
 type isEqual struct {
