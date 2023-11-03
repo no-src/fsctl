@@ -1,7 +1,7 @@
 package command
 
 import (
-	"github.com/no-src/gofs/fs"
+	"github.com/no-src/nsgo/fsutil"
 )
 
 type isExist struct {
@@ -10,7 +10,7 @@ type isExist struct {
 }
 
 func (c isExist) Exec() error {
-	exist, err := fs.FileExist(c.Source)
+	exist, err := fsutil.FileExist(c.Source)
 	if err == nil && exist != c.Expect {
 		err = newNotExpectedError(c, exist)
 	}

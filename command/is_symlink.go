@@ -1,7 +1,7 @@
 package command
 
 import (
-	"github.com/no-src/gofs/fs"
+	"github.com/no-src/nsgo/fsutil"
 )
 
 type isSymlink struct {
@@ -11,7 +11,7 @@ type isSymlink struct {
 }
 
 func (c isSymlink) Exec() error {
-	actual, err := fs.IsSymlink(c.Link)
+	actual, err := fsutil.IsSymlink(c.Link)
 	if err != nil {
 		if c.IgnoreError {
 			return nil

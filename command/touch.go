@@ -1,7 +1,7 @@
 package command
 
 import (
-	"github.com/no-src/gofs/fs"
+	"github.com/no-src/nsgo/fsutil"
 )
 
 type touch struct {
@@ -9,7 +9,7 @@ type touch struct {
 }
 
 func (c touch) Exec() error {
-	f, err := fs.CreateFile(c.Source)
+	f, err := fsutil.CreateFile(c.Source)
 	if err != nil {
 		return err
 	}

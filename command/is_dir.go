@@ -1,7 +1,7 @@
 package command
 
 import (
-	"github.com/no-src/gofs/fs"
+	"github.com/no-src/nsgo/fsutil"
 )
 
 type isDir struct {
@@ -10,7 +10,7 @@ type isDir struct {
 }
 
 func (c isDir) Exec() error {
-	dir, err := fs.IsDir(c.Source)
+	dir, err := fsutil.IsDir(c.Source)
 	if err != nil {
 		return err
 	}

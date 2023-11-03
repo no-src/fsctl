@@ -1,7 +1,7 @@
 package command
 
 import (
-	"github.com/no-src/gofs/util/hashutil"
+	"github.com/no-src/nsgo/hashutil"
 )
 
 type hash struct {
